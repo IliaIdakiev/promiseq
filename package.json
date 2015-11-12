@@ -1,0 +1,23 @@
+{
+  "name": "promiseq",
+  "version": "1.0.0",
+  "description": "Sequential es2015 (es6) promise executor",
+  "main": "promoseq.js",
+  "scripts": {
+    "test": "mocha ./test.js"
+  },
+  "author": "Ilia Idakiev",
+  "license": "MIT",
+  "keywords": [
+   "es6",
+   "es2015",
+   "promise",
+   "promises",
+   "sequance",
+   "sequential"
+  ],
+  "dependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.3"
+  }
+}
