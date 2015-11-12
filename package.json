@@ -1,10 +1,14 @@
 {
-  "name": "promiseq",
+  "name": "promisequance",
   "version": "1.0.0",
   "description": "Sequential es2015 (es6) promise executor",
   "main": "promoseq.js",
   "scripts": {
     "test": "mocha ./test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IliaIdakiev/promiseq"
   },
   "author": "Ilia Idakiev",
   "license": "MIT",
