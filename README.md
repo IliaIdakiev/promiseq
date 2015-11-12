@@ -3,7 +3,7 @@
 Module for executing promises in sequense.
 
 ```javascript
-var promiseq = require('promosequance');
+var promiseq = require('promisequance');
 
 function one() {
     return new Promise(function(resolve, reject) {
