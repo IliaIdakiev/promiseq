@@ -1,6 +1,6 @@
 {
   "name": "promisequance",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Sequential es2015 (es6) promise executor",
   "main": "promoseq.js",
   "scripts": {
@@ -13,13 +13,12 @@
   "author": "Ilia Idakiev",
   "license": "MIT",
   "keywords": [
-   "es6",
-   "es2015",
-   "promise",
-   "promises",
-   "sequance",
-   "sequential"
+    "es6",
+    "es2015",
+    "promise",
+    "promises",
+    "sequance",
+    "sequential"
   ],
-  "dependencies": {
-  }
+  "dependencies": {}
 }
