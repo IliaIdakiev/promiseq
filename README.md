@@ -21,7 +21,7 @@ function two() {
     });
 }
 
-promoseq([one, two]).then(function(result) {
+promiseq([one, two]).then(function(result) {
     console.log(result[0]) // '1'
     console.log(result[1]) // '2'
 });
