@@ -62,4 +62,21 @@ describe('simple sequential promises tests', function() {
             done();
         });
     });
+
+    it('should resolve when array is empty', function() {
+        var list = [];
+        var func1 = function(list) {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() { 
+                    resolve(list);
+                }, 10);
+            });
+        };
+
+        var func2 = function() {
+            done();
+        };
+
+        func1(list).then(promiseq).then(func2);
+    });
 });

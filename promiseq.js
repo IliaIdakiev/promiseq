@@ -1,4 +1,5 @@
 function sequance(items) {
+    if(items.length === 0) return Promise.resolve();
     return new Promise(function(resolve, reject) {
         var counter = 0;
         var results = [];
