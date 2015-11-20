@@ -1,6 +1,6 @@
 {
   "name": "promisequance",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Sequential es2015 (es6) promise executor",
   "main": "promoseq.js",
   "scripts": {
