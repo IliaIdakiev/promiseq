@@ -1,3 +1,4 @@
+/*jshint esnext: true*/
 function sequance(items) {
     if(items.length === 0) return Promise.resolve();
     return new Promise(function(resolve, reject) {
@@ -9,7 +10,6 @@ function sequance(items) {
         };
         var rejector = function(err) {
             reject(err);
-            gen.throw(err);
         };
         var gen = function* () {
             while(true){
