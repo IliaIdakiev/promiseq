@@ -11,9 +11,8 @@ npm install promisequance
 ```javascript
 var promiseq = require('promisequance');
 
-function one(prevValue, data) {
+function one(data) {
     return new Promise(function(resolve, reject) {
-        //prevValue: undefined
         //data = { value: 200 }
         setTimeout(function() {
             resolve('1');
@@ -21,7 +20,7 @@ function one(prevValue, data) {
     });
 }
 
-function two(prevValue, data) {
+function two(data, prevValue) {
     return new Promise(function(resolve, reject) {
         //prevValue: 1
         //data = { value: 200 }

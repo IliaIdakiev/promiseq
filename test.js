@@ -4,7 +4,7 @@ var should = require('chai').should();
 describe('simple sequential promises tests', function() {
     it('should exec all promises in seq and return result', function(done) {
 
-        var testFunc1 = function(prevResult, data) {
+        var testFunc1 = function(data) {
             return new Promise(function(resolve, reject) {
                 setTimeout(function() {
                     data.func1 = 'func1';
@@ -12,7 +12,7 @@ describe('simple sequential promises tests', function() {
                 }, 1);
             });
         };
-        var testFunc2 = function(prevResult, data){
+        var testFunc2 = function(data, prevResult) {
             return new Promise(function(resolve, reject) {
                 setTimeout(function() {
                     data.func2 = 'func2';
@@ -20,7 +20,7 @@ describe('simple sequential promises tests', function() {
                 }, 1);
             });
         };
-        var testFunc3 = function(prevResult, data){
+        var testFunc3 = function(data, prevResult) {
             return new Promise(function(resolve, reject) {
                 setTimeout(function() {
                     data.func3 = 'func3';

@@ -14,7 +14,7 @@ function sequance(items, data) {
         var gen = function* () {
             while(true) {
                 var prevResult = results[counter - 1] || undefined;
-                results.push(yield items[counter](prevResult, data).then(resume).catch(rejector));
+                results.push(yield items[counter](data, prevResult).then(resume).catch(rejector));
                 if(counter === items.length) return resolve({ results, data });
             }
         };
