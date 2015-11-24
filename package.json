@@ -18,7 +18,10 @@
     "promise",
     "promises",
     "sequance",
-    "sequential"
+    "sequential",
+    "series",
+    "serial",
+    "promiseq"
   ],
   "dependencies": {}
 }
