@@ -2,6 +2,12 @@
 
 Module for executing promises in sequense.
 
+####Installing:
+```
+npm install promi-seq
+```
+
+####Usage:
 ```javascript
 var promiseq = require('promisequance');
 
