@@ -3,32 +3,43 @@ var should = require('chai').should();
 
 describe('simple sequential promises tests', function() {
     it('should exec all promises in seq and return result', function(done) {
-        var testFunc1 = function(){
+
+        var testFunc1 = function(prevResult, data) {
             return new Promise(function(resolve, reject) {
                 setTimeout(function() {
+                    data.func1 = 'func1';
                     resolve('testFunc1');
                 }, 1);
             });
         };
-        var testFunc2 = function(){
+        var testFunc2 = function(prevResult, data){
             return new Promise(function(resolve, reject) {
                 setTimeout(function() {
+                    data.func2 = 'func2';
                     resolve('testFunc2');
                 }, 1);
             });
         };
-        var testFunc3 = function(){
+        var testFunc3 = function(prevResult, data){
             return new Promise(function(resolve, reject) {
                 setTimeout(function() {
+                    data.func3 = 'func3';
                     resolve('testFunc3');
                 }, 100);
             });
         };
 
-        promiseq([testFunc1, testFunc2, testFunc3]).then(function(values) {
-            values[0].should.equal('testFunc1');
-            values[1].should.equal('testFunc2');
-            values[2].should.equal('testFunc3');
+        promiseq([testFunc1, testFunc2, testFunc3], { start: 'someData' }).then(function(values) {
+            values.results[0].should.equal('testFunc1');
+            values.results[1].should.equal('testFunc2');
+            values.results[2].should.equal('testFunc3');
+
+            values.data.start.should.equal('someData');
+            values.data.func1.should.equal('func1');
+            values.data.func2.should.equal('func2');
+            values.data.func3.should.equal('func3');
+            console.log('First finished ...');
+
             done();
         });
     });

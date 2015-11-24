@@ -1,5 +1,5 @@
 /*jshint esnext: true*/
-function sequance(items) {
+function sequance(items, data) {
     if(items.length === 0) return Promise.resolve();
     return new Promise(function(resolve, reject) {
         var counter = 0;
@@ -12,9 +12,10 @@ function sequance(items) {
             reject(err);
         };
         var gen = function* () {
-            while(true){
-                results.push(yield items[counter]().then(resume).catch(rejector));
-                if(counter === items.length) return resolve(results);
+            while(true) {
+                var prevResult = results[counter - 1] || undefined;
+                results.push(yield items[counter](prevResult, data).then(resume).catch(rejector));
+                if(counter === items.length) return resolve({ results, data });
             }
         };
 
