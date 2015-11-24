@@ -4,7 +4,7 @@ Module for executing promises in sequense.
 
 ####Installing:
 ```
-npm install promi-seq
+npm install promisequance
 ```
 
 ####Usage:
