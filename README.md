@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/IliaIdakiev/promiseq.svg?branch=master)](https://travis-ci.org/IliaIdakiev/promiseq)
+[![npm](https://img.shields.io/npm/dm/localeval.svg?style=plastic)](https://www.npmjs.com/package/promisequance)
 #Sequential promise executor for ES2015
 
 Module for executing promises in sequense.
