@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/IliaIdakiev/promiseq.svg?branch=master)](https://travis-ci.org/IliaIdakiev/promiseq)
+[![Build Status](https://travis-ci.org/IliaIdakiev/promiseq.svg?branch=master)](https://travis-ci.org/IliaIdakiev/promiseq)<br>
 #Sequential promise executor for ES2015
 
 Module for executing promises in sequense.
