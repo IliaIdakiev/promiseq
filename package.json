@@ -21,7 +21,9 @@
     "sequential",
     "series",
     "serial",
-    "promiseq"
+    "promiseq",
+    "flow-control",
+    "async"
   ],
   "dependencies": {},
   "devDependencies": {
