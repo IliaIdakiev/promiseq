@@ -1,16 +1,16 @@
 [![Build Status](https://travis-ci.org/IliaIdakiev/promiseq.svg?branch=master)](https://travis-ci.org/IliaIdakiev/promiseq)<br>
 #Sequential promise executor for ES2015
 
-Module for executing promises in sequense.
+Module for executing promises in sequence.
 
 ####Installing:
 ```
-npm install promisequance
+npm install promisequence
 ```
 
 ####Usage:
 ```javascript
-var promiseq = require('promisequance');
+var promiseq = require('promisequence');
 
 function one(data) {
     return new Promise(function(resolve, reject) {
