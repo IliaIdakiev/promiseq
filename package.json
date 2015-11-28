@@ -23,7 +23,10 @@
     "serial",
     "promiseq",
     "flow-control",
-    "async"
+    "flow control",
+    "sync",
+    "synchronous",
+    "promise sequence"
   ],
   "dependencies": {},
   "devDependencies": {
