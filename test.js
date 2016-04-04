@@ -74,7 +74,7 @@ describe('simple sequential promises tests', function() {
         });
     });
 
-    it('should resolve when array is empty', function() {
+    it('should resolve when array is empty', function(done) {
         var list = [];
         var func1 = function(list) {
             return new Promise(function(resolve, reject) {
@@ -89,5 +89,72 @@ describe('simple sequential promises tests', function() {
         };
 
         func1(list).then(promiseq).then(func2);
+    });
+
+
+    it('should resolve when array is empty', function(done) {
+        var list = [];
+        var func1 = function(list) {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() { 
+                    resolve(list);
+                }, 10);
+            });
+        };
+
+        var func2 = function(result) {
+            result.data.someData.should.equal('someData');
+            done();
+        };
+
+        promiseq([func1], { someData: 'someData' }).then(func2);
+    });
+
+
+    it('should handle already resolved promises and array of promises', function(done) {
+        var list = [];
+        var dataArr = ['Hello', 'World', '!'];
+        function pr(data) {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    resolve(data.toUpperCase());
+                }, 10);
+            });
+        }
+
+        var promises = [Promise.resolve('test')].concat(dataArr.map(pr), [Promise.resolve(':)')]);
+
+        promiseq(promises, { someData: 'someData' }).then(function(result) {
+            result.results[0].should.equal('test');
+            result.results[1].should.equal('HELLO');
+            result.results[2].should.equal('WORLD');
+            result.results[3].should.equal('!');
+            result.results[4].should.equal(':)');
+            result.data.someData.should.equal('someData');
+            done();
+        });
+    });
+
+
+    it('should handle mixed kinds', function(done) {
+        var list = [];
+        function pr(data) {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    resolve(typeof data === 'string' ? data.toUpperCase() : '***');
+                }, 10);
+            });
+        }
+
+        var promises = [Promise.resolve('test')].concat([pr, pr('tset')],[Promise.resolve(':)')]);
+
+        promiseq(promises, { someData: 'someData' }).then(function(result) {
+            result.results[0].should.equal('test');
+            result.results[1].should.equal('***');
+            result.results[2].should.equal('TSET');
+            result.results[3].should.equal(':)');
+            result.data.someData.should.equal('someData');
+            done();
+        }).catch();
     });
 });
