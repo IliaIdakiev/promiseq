@@ -12,18 +12,17 @@ npm install promisequence
 ```javascript
 var promiseq = require('promisequence');
 
-function one(data) {
+function one(result) {
     return new Promise(function(resolve, reject) {
-        //data = { value: 200 }
         setTimeout(function() {
-            resolve('1');
+            resolve(result);
         },1000);
     });
 }
 
 function two(data, prevValue) {
     return new Promise(function(resolve, reject) {
-        //prevValue: 1
+        //prevValue: '1'
         //data = { value: 200 }
         setTimeout(function() {
             resolve('2');
@@ -34,9 +33,10 @@ var someData = {
     value: 200
 };
 
-promiseq([one, two], someData).then(function(values) {
-    console.log(values.results[0]) // '1'
-    console.log(values.results[1]) // '2'
+promiseq([Promise.resolve('0'), one(1), two], someData).then(function(values) {
+    console.log(values.results[0]) // '0'
+    console.log(values.results[1]) // '1'
+    console.log(values.results[2]) // '2'
     console.log(values.data.value) // 200
 });
 ```
